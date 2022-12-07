@@ -6,7 +6,8 @@ export const Container = styled.div`
     justify-content: center;
     width: 200px;
     height: 50px;
-
+    margin: 1rem 0;
+    
     .logo {
         display: flex;
         align-items: center;

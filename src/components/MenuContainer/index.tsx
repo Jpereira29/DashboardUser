@@ -14,6 +14,19 @@ export function MenuContainer() {
                 <MenuNavigation
                     logoSrc="/images/home.png"
                     name="Dashboard"
+                    routeUrl="/Dashboard"
+                />
+
+                <MenuNavigation
+                    logoSrc="/images/home.png"
+                    name="Projects"
+                    routeUrl="/Projects"
+                />
+
+                <MenuNavigation
+                    logoSrc="/images/home.png"
+                    name="Notificações"
+                    routeUrl="Notifications"
                 />
             </div>
         </Container>

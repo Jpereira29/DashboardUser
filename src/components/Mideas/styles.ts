@@ -10,4 +10,5 @@ export const Container = styled.div`
     border-radius: 20px;
     background: var(--purple);
     color: var(--white);
+    margin-top: 2rem;
 `
