@@ -5,7 +5,7 @@ type Props = {
     width: number
     height: number
     logo: string
-    text: string
+    text?: string
 }
 
 export function InformationUser({ width, height, logo, text }: Props) {

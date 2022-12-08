@@ -1,10 +1,21 @@
+import { useState } from "react";
 import { ButtonAdd } from "../components/ButtonAdd";
+import { Form } from "../components/Form";
 import { InformationUser } from "../components/IformationUser";
 import { Mideas } from "../components/Mideas";
 import { welcome } from "../functions/welcome";
+import { useDataMideas, useDataUser } from "../hooks/useData";
 import { Container } from "../styles/Dashboard";
+import { Midea } from "../types/Midea";
+import { User } from "../types/User";
 
 export default function Dashboard() {
+
+    const { user } = useDataUser<User>("https://localhost:7212/api/Users/8")
+    const { mideas } = useDataMideas<Midea>("https://localhost:7212/api/SocialMedia")
+
+    const [ formMideaState, setFormMideaState ] = useState(false)
+
     return (
         <Container>
             <h3 style={{
@@ -15,7 +26,7 @@ export default function Dashboard() {
                 color: "var(--orange)"
             }}
             >
-                Jorge</span>
+                {user?.name}</span>
             </h3>
 
             <div className="informations-user">
@@ -23,7 +34,7 @@ export default function Dashboard() {
                     height={90}
                     width={350}
                     logo="/images/email.png"
-                    text="jorgepereira29ele@gmail.com"
+                    text={user?.email}
                 />
 
                 <InformationUser 
@@ -35,10 +46,15 @@ export default function Dashboard() {
                 />
             </div>
             <div>
-                <Mideas 
-                    name="Linkedin"
+
+                <Form
+                    userId={user?.userId}
+                    formMideaState={formMideaState}
+                    setFormMideaState={setFormMideaState}
                 />
-                <ButtonAdd />
+                <span onClick={()=> setFormMideaState(true)}>
+                    <ButtonAdd />
+                </span>
             </div>
         </Container>
 
